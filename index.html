@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            font-family: 'Roboto', sans-serif;
+        }
+        .wrap{
+            width: 100%;
+           height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-image: url(./img/background.jpg);
+            background-size: cover;
+             background-color: brown;
+       
+        }
+        .coffeMachine{
+            width: 1225px;
+            height: 635px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .coffeMachine__left{
+            width: 460px;
+            height: 195px;
+            background-image: url(./img/shteker1.png);
+            background-size: cover;
+        }
+        .coffeMachine__right{
+            width: 800px;
+height: 620px;
+background-image: url(./img/CoffeMachine.png);
+background-size: cover;
+margin-left: -40px;
+margin-bottom: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+        }
+        .coffeMachine__right__img__machine__cup{
+            width: 135px;
+            height: 150px;
+            position: absolute;
+        
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 130px;
+            margin-left: 20px;
+        }
+        .coffeMachine__right__img__machine__cup__img{
+width: 95px;
+height: 96px;
+        }
+        .coffeMachine__right__water{
+            width: 174px;
+            height: 353px;
+       
+            border-top-left-radius: 10px;
+            margin-top: 20px;
+            margin-left: -543px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            cursor: pointer;
+        }
+        .coffeMachine__right__water__bar{
+            width: 100%;
+            height: 0%;
+            background-color: #5EA1F0;
+            opacity: 0.8;
+            transition: 0.05s;
+ 
+        }
+        .coffeMachine__right__cof{
+            width: 175px;
+            height: 353px;
+            position: absolute;
+       
+            border-top-left-radius: 10px;
+            margin-top: 20px;
+            margin-left: 540px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+        .coffeMachine__right__cof__bar{
+            width: 100%;
+            height: 0%;
+            background-color: #AE6C1E;
+            opacity: 0.8;
+            transition: 0.5s;
+        }
+        .coffeMachine__right__vudacha1{
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 9px;
+            height: 80px;
+          
+            margin-left: -32px;
+            margin-top: 35px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .coffeMachine__right__vudacha1__bar{
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 0%;
+            transition: 0.4s;
+            background-color: #b07a38;
+        }
+        .coffeMachine__right__vudacha2{
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 9px;
+            height: 80px;
+          
+            margin-left: 51px;
+            margin-top: 35px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .coffeMachine__right__vudacha2__bar{
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 0%;
+            background-color: #b07a38;
+            transition: 0.4s;
+        }
+        .coffeMachine__right__plus{
+            position: absolute;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border: 0px;
+            border-radius: 5px;
+            margin-top: -292px;
+            margin-left: -100px;
+       
+        }
+        .coffeMachine__right__minus{
+            cursor: pointer;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 0px;
+            border-radius: 5px;
+            margin-top: -292px;
+            margin-left: 120px;
+        
+        }
+        .coffeMachine__right__choose{
+            cursor: pointer;
+            position: absolute;
+     
+       width: 30px;
+       height: 30px;
+       border: 0px;
+       border-radius: 5px;
+       margin-top: -230px;
+       margin-left: -100px;
+        }
+        .coffeMachine__right__skip{
+            cursor: pointer;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 0px;
+            border-radius: 5px;
+            margin-top: -230px;
+           
+            margin-left: 120px;
+        }
+        .coffeMachine__right__start__pause{
+            cursor: pointer;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 0px;
+            border-radius: 5px;
+            margin-top: -240px;
+            margin-left: 10px;
+           
+  
+        }
+        .coffeMachine__right__ekran{
+            width: 130px;
+            height: 75px;
+         color: rgb(31, 134, 31);
+            padding: 2px 4px;
+            margin-top: -405px;
+            margin-left: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        .coffeMachine__right__ekran__progress{
+            width: 100%;
+            height: 40px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+        }
+        .coffeMachine__right__ekran__progress__bar{
+            width: 80%;
+            height: 16px;
+            border: 2px solid  rgb(31, 134, 31);
+            padding: 1px;
+            display: flex;
+         
+
+        }
+        .coffeMachine__right__ekran__progress__load{
+            width: 100%;
+            display: flex;
+        }
+        .coffeMachine__right__ekran__progress__percente{
+            padding-left: 3px;
+        }
+        .coffeMachine__right__ekran__progress__bar__point{
+            height: 100%;
+            background-color:  rgb(31, 134, 31);
+            width: 10.5px;
+            margin: 0.5px;
+           
+         
+        }
+        .setting{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0.5%;
+            top: 0.5%;
+            cursor: pointer;
+        }
+        .settingMenu{
+            min-width: 60%;
+            min-height: 80vh;
+            position: fixed;
+            left: 20%;
+            top: 10vh;
+            background-color: white;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+           
+            align-items: center;
+            padding: 2% 24px;
+      
+            display: none;
+            font-size: 20px;
+            font-weight: 600;
+
+        }
+        .settingMenu__text{
+            font-size: 18px;
+            font-weight: 500;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button id="runBtn">run</button>
+    <button id="stopBtn">stop</button>
+    
+    <button id="removeBtn">remove</button> -->
+    <div class="settingMenu">
+        Інструкція по користування кавовоїмашини
+        <div class="settingMenu__text">1.Щоб включити увімкніть у ризутку.</div>
+        <div class="settingMenu__text">2.Наповніть воду та каву у машинку.</div>
+        <div class="settingMenu__text">3.Натисніть кнопку Старт(P.S пауза не працює).</div>
+        <div class="settingMenu__text">4.Кнопками + і - можна обирати властивості (розмір кружки).</div>
+        <div class="settingMenu__text">5.Кнопка С потрібна для вибору властивості.</div>
+        <div class="settingMenu__text">6.Кнопка S не працює, бо її хтось зламав.</div>
+        <div class="settingMenu__text">7.Виберіть усі інградіети, спостерігайте за створенням кави та насолоджуйтесь.</div>
+        <div class="settingMenu__text">8.Ви можите ще раз зробити каву.</div>
+    </div>
+    <div class="wrap">
+        <img class="setting" src="./img/setting.png" alt="">
+        <div class="coffeMachine">
+            <div class="coffeMachine__left" id="coffeMachine__left">
+                <div class="coffeMachine__left__img"></div>
+            </div>
+            <div class="coffeMachine__right">
+                <div class="coffeMachine__right__ekran" id="coffeMachine__right__ekran">
+               <div class="coffeMachine__right__ekran__main" id="coffeMachine__right__ekran__main"></div>
+               <div class="coffeMachine__right__ekran__progress">
+                <div class="coffeMachine__right__ekran__progress__load"> <div class="coffeMachine__right__ekran__progress__bar">
+                    
+
+
+                   
+                </div>
+                
+                <div class="coffeMachine__right__ekran__progress__percente" id="coffeMachine__right__ekran__progress__percente">54%</div></div>
+               
+                <div class="coffeMachine__right__ekran__progress__whatDo">Вариться кава</div>
+               </div>
+                </div>
+                <div class="coffeMachine__right__plus"></div>
+                <div class="coffeMachine__right__minus"></div>
+                <div class="coffeMachine__right__choose"></div>
+                <div class="coffeMachine__right__skip"></div>
+                <div class="coffeMachine__right__start__pause"></div>
+                <div class="coffeMachine__right__vudacha1">
+                    <div class="coffeMachine__right__vudacha1__bar"></div>
+                </div>
+                <div class="coffeMachine__right__vudacha2">
+                    <div class="coffeMachine__right__vudacha2__bar"></div>
+                </div>
+                <div class="coffeMachine__right__water">
+                    <div class="coffeMachine__right__water__bar"></div>
+                </div>
+                <div class="coffeMachine__right__cof">
+                    <div class="coffeMachine__right__cof__bar"></div>
+                </div>
+                    <div class="coffeMachine__right__img__machine__cup"><img class="coffeMachine__right__img__machine__cup__img" id="coffeMachine__right__img__machine__cup__img" src="./img/nothing.png" alt=""></div>
+              
+            </div>
+        </div>
+    </div>
+    <script>
+        let seti=0;
+        $('.setting').click(function(){
+            if(seti==0){
+                $('.settingMenu').css('display','flex')
+            $('.settingMenu').css('fliter','blur(5px)')
+            setTimeout(function(){
+                seti=1
+            },100)
+            }
+     
+       
+        })
+        $('.wrap').click(function(){
+            if(seti==1){
+                $('.settingMenu').css('display','none') 
+                $('.settingMenu').css('fliter','blur(5px)')
+                setTimeout(function(){
+                seti=0
+            },100)
+            }
+             
+            })
+        let newCoffe = false
+        let cookingPercantage=0
+        let CookingIntervall;
+        let requireTime;
+        let WaterIntervall;
+        let CoffeIntervall;
+        let capacityOfWater=0
+        let capacityOfCoffe=0
+        let onMachine=false
+        let par1Setml=[0,100,175,250]
+        let par1Setcf=[0,50,75,100]
+        let par1Set=['Виберіть розмір стакана','Малий 100ml','Середній 175ml','Великий 250ml']
+        let par1SetImg=['./img/nothing.png','./img/kouples.png','./img/kouplem.png','./img/koupleb.png']
+        let par1SetWidth=[95,95,115,135]
+        let par1SetHeight=[96,96,125,150]
+        let par1SetThis=0;
+        let par1SetChoosed=[]
+        let par2SetChoosed=[]
+        let par2Set=['Додати щось','Цукор','Молоко','Цукор і молоко','Нічо']
+        let par2SetTime=[0,750,2500,3250,0]
+        let par2SetColor=['','white','lightyellow','rgb(239, 239, 158)','transparent']
+        let par2SetThis=0;
+        function CoffeMachine(power){
+        
+                this.waterAmout =0
+            const Water__Heat__Capacity = 4200
+            let timerId;
+            let getBoilTime=function(){
+                
+              let t= this.waterAmout * Water__Heat__Capacity *80/power
+              console.log(t)
+                return t;
+                
+            }.bind(this);
+            let onReady= function(){
+                console.log('Coffe is ready')
+                this.waterAmout-=100
+                console.log(this.waterAmout)
+        
+            }.bind(this)
+     
+            let onMachinefun = function(){
+                    $('.coffeMachine__left').css('backgroundImage','url(./img/shteker12.png)')
+                  
+                    coffeMachine__right__ekran__main.innerText='Вітаємо'
+                }.bind(this)
+
+
+
+            let pressStart3 = function(){
+                let minusWater=0
+                minusWater=par1Setml[par1SetThis]/100
+                let minusCoffe=0
+                minusCoffe=par1Setcf[par1SetThis]/100
+                requireTime= par2SetTime[par2SetThis]+(par1Setml[par1SetThis] * Water__Heat__Capacity *80/power)
+                console.log(requireTime)
+                coffeMachine__right__ekran__main.innerText='Готується'
+                $('.coffeMachine__right__ekran__progress').css('display','flex')
+                $('.coffeMachine__right__vudacha2__bar').css('backgroundColor',par2SetColor[par2SetThis])
+                setTimeout(function(){
+
+                $('.coffeMachine__right__vudacha2__bar').css('height','100%')
+               
+                },requireTime/100*70)
+                setTimeout(function(){
+                    $('.coffeMachine__right__vudacha1__bar').css('height','100%')
+                
+                },requireTime/100*75)
+                setTimeout(function(){
+                    $('.coffeMachine__right__vudacha1').css('flex-direction','column')
+                    $('.coffeMachine__right__vudacha2').css('flex-direction','column')
+                $('.coffeMachine__right__vudacha2__bar').css('height','0%')
+                $('.coffeMachine__right__vudacha1__bar').css('height','0%')
+              
+                },requireTime/100*95)
+                setTimeout(function(){
+                    $('.coffeMachine__right__ekran__progress').css('display','none')
+                    $('.coffeMachine__right__ekran__main').css('font-size','12px')
+                    coffeMachine__right__ekran__main.innerText='Кава готова. Нажміть старт щоб щробити нову'
+                    parametru=1;
+                    newCoffe=true
+                },requireTime)
+             let cookingInterval =   setInterval(function(){
+                    cookingPercantage++
+                    coffeMachine__right__ekran__progress__percente.innerText =cookingPercantage+'%'
+                    capacityOfWater=capacityOfWater-minusWater
+                    $('.coffeMachine__right__water__bar').css('height',capacityOfWater/(2000/100)+'%')
+
+                    capacityOfCoffe=capacityOfCoffe-minusCoffe
+                    $('.coffeMachine__right__cof__bar').css('height',capacityOfCoffe/(1000/100)+'%')
+                    if(cookingPercantage>=100){
+                        clearInterval(cookingInterval)
+                        clearInterval(cookingInterval2)
+                    }
+                    
+                },requireTime/100)
+                let cookingInterval2 =     setInterval(function(){
+                $('.coffeMachine__right__ekran__progress__bar').append('<div class="coffeMachine__right__ekran__progress__bar__point"></div>')
+            },requireTime/8-10)
+            }
+
+            let pressPlus1 = function(){
+                if(par1SetThis==3){
+                    par1SetThis=0
+                    console.log(par1SetThis)
+                    coffeMachine__right__ekran__main.innerText=par1Set[par1SetThis]
+                    coffeMachine__right__img__machine__cup__img.src = par1SetImg[par1SetThis]
+                    $('.coffeMachine__right__img__machine__cup__img').css('width', par1SetWidth[par1SetThis])
+                    $('.coffeMachine__right__img__machine__cup__img').css('height', par1SetHeight[par1SetThis])
+                }else{
+                    par1SetThis++;
+                    console.log(par1SetThis)
+                    coffeMachine__right__ekran__main.innerText=par1Set[par1SetThis]
+                coffeMachine__right__img__machine__cup__img.src = par1SetImg[par1SetThis]
+                $('.coffeMachine__right__img__machine__cup__img').css('width', par1SetWidth[par1SetThis])
+                    $('.coffeMachine__right__img__machine__cup__img').css('height', par1SetHeight[par1SetThis])
+                }
+                
+
+            }.bind(this)
+            let pressPlus2 = function(){
+                if(par2SetThis==4){
+                    par2SetThis=0
+                    coffeMachine__right__ekran__main.innerText=par2Set[par2SetThis]
+                
+
+                }else{
+                    par2SetThis++;
+                    coffeMachine__right__ekran__main.innerText=par2Set[par2SetThis]
+      
+                }
+                
+
+            }.bind(this)
+            let pressChose1 = function(){
+                if(par1SetThis===0){
+                    coffeMachine__right__ekran__main.innerText='Вибери щось'
+                }else{
+                    par1SetChoosed.push(par1Set[par1SetThis])
+                par1SetChoosed.push(par1SetImg[par1SetThis])
+                par1SetChoosed.push(par1SetWidth[par1SetThis])
+                par1SetChoosed.push(par1SetHeight[par1SetThis])
+                coffeMachine__right__ekran__main.innerText='Додати щось'
+                parametru=2
+                console.log(par1SetChoosed)
+                
+                }
+
+            }
+            let pressChose2 = function(){
+                if(par2SetThis===0){
+                    coffeMachine__right__ekran__main.innerText='Вибери щось'
+                }else{
+                    par2SetChoosed.push(par2Set[par2SetThis])
+                    par2SetChoosed.push(par2SetColor[par2SetThis])
+         
+              coffeMachine__right__ekran__main.innerText='Нажми старт щоб почати'
+                
+                parametru=3
+                console.log(par2SetChoosed)
+                
+                }
+
+            }
+            let pressMinus1 = function(){
+                if(par1SetThis==0){
+                    par1SetThis=par1Set.length-1
+                    coffeMachine__right__ekran__main.innerText=par1Set[par1SetThis]
+                    coffeMachine__right__img__machine__cup__img.src = par1SetImg[par1SetThis]
+                    $('.coffeMachine__right__img__machine__cup__img').css('width', par1SetWidth[par1SetThis])
+                    $('.coffeMachine__right__img__machine__cup__img').css('height', par1SetHeight[par1SetThis])
+                    console.log(par1SetThis)
+                }else{
+                    par1SetThis--;
+                    console.log(par1SetThis)
+                    coffeMachine__right__ekran__main.innerText=par1Set[par1SetThis]
+                coffeMachine__right__img__machine__cup__img.src = par1SetImg[par1SetThis]
+                $('.coffeMachine__right__img__machine__cup__img').css('width', par1SetWidth[par1SetThis])
+                    $('.coffeMachine__right__img__machine__cup__img').css('height', par1SetHeight[par1SetThis])
+                }
+                
+
+            }.bind(this)
+            let pressMinus2 = function(){
+                if(par2SetThis==0){
+                    par2SetThis=par2Set.length-1
+                    coffeMachine__right__ekran__main.innerText=par2Set[par2SetThis]
+      
+                }else{
+                    par2SetThis--;
+                    coffeMachine__right__ekran__main.innerText=par2Set[par2SetThis]
+
+                }
+                
+
+            }.bind(this)
+            let PutWater =function(){
+                let addWater = 8
+                let percentageOfWater;
+                
+                if(capacityOfWater<=1900){
+                    WaterIntervall = setInterval(function(){
+                        addWater=addWater*1.05
+                        capacityOfWater+=addWater
+                        console.log(capacityOfWater)
+                        percentageOfWater=capacityOfWater/(2000/100)
+                        $('.coffeMachine__right__water__bar').css('height',percentageOfWater+'%')
+                        if(capacityOfWater>=1900){
+                            capacityOfWater=1900
+                            percentageOfWater=capacityOfWater/(2000/100)
+                        $('.coffeMachine__right__water__bar').css('height',percentageOfWater+'%')
+                            clearInterval(WaterIntervall)
+                        }
+                    },50)
+                }
+            }
+            let PutCoffe =function(){
+                let addCoffe = 4
+                let percentageOfCoffe;
+                
+                if(capacityOfCoffe<=950){
+                    CoffeIntervall = setInterval(function(){
+                        addCoffe=addCoffe*1.02
+                        capacityOfCoffe+=addCoffe
+                        console.log(capacityOfCoffe)
+                        percentageOfCoffe=capacityOfCoffe/(1000/100)
+                        $('.coffeMachine__right__cof__bar').css('height',percentageOfCoffe+'%')
+                        if(capacityOfCoffe>=950){
+                            capacityOfCoffe=950
+                            percentageOfCoffe=capacityOfCoffe/(1000/100)
+                        $('.coffeMachine__right__cof__bar').css('height',percentageOfCoffe+'%')
+                            clearInterval(CoffeIntervall)
+                        }
+                    },50)
+                }
+            }
+            // let PutCoffe2 =function(){
+            //     let addCoffe = 40
+            //     let percentageOfCoffe;
+                
+            //     if(capacityOfCoffe<=950){
+                   
+                     
+            //             capacityOfCoffe+=addCoffe
+            //             console.log(capacityOfCoffe)
+            //             percentageOfCoffe=capacityOfCoffe/(1000/100)
+            //             $('.coffeMachine__right__cof__bar').css('height',percentageOfCoffe+'%')
+            //             if(capacityOfCoffe>=950){
+            //                 capacityOfCoffe=950
+            //                 percentageOfCoffe=capacityOfCoffe/(1000/100)
+            //             $('.coffeMachine__right__cof__bar').css('height',percentageOfCoffe+'%')
+            //             clearInterval(CoffeIntervall)
+            //             }
+                  
+            //     }
+            // }
+            this.PutWaterr = function(){
+                PutWater()
+            }
+            this.PutCoffee = function(){
+                PutCoffe()
+            }
+            // this.PutCoffee2 = function(){
+            //     PutCoffe2()
+            // }
+            this.pressChoosed1 = function(){
+                pressChose1()
+                
+            }
+            this.pressChoosed2 = function(){
+                pressChose2()
+                
+            }
+            this.pressPluss1 = function(){
+                pressPlus1()
+            }
+            this.pressPluss2 = function(){
+                pressPlus2()
+            }
+            this.pressMinuss1 = function(){
+                pressMinus1()
+            }
+            this.pressMinuss2 = function(){
+                pressMinus2()
+            }
+            this.pressStarttt3 = function(){
+                pressStart3()
+            }
+            this.run = function(){
+               timerId = setTimeout(onReady,getBoilTime())
+            
+            }
+            
+            this.btnStart = function(){
+                if(capacityOfWater>350+30 && capacityOfCoffe>100+15){
+               
+                }
+                console.log(capacityOfWater,capacityOfCoffe)
+                coffeMachine__right__ekran__main.innerText='Недостатньо води і кави'
+                
+            }
+            this.stop = function(){
+                clearTimeout(timerId)
+                console.log('Stopped')
+            }
+       
+          
+                this.onMachine = function(){
+                    onMachinefun()
+                    onMachine=true
+
+                }   
+          
+     
+        }
+        let parametru =1;
+        let started=false
+        let ttt =5000
+        let coffeMachine = new CoffeMachine(ttt)
+        $('.coffeMachine__right__water').mousedown(function(){
+            coffeMachine.PutWaterr()
+        })
+        $('.coffeMachine__right__cof').mousedown(function(){
+        
+            coffeMachine.PutCoffee()
+        })
+        // $('.coffeMachine__right__water').onclick(function(){
+        //     coffeMachine.PutWaterr()
+        // })
+        // $('.coffeMachine__right__cof').onclick(function(){
+        
+        //     coffeMachine.PutCoffee2()
+        // })
+        $('.coffeMachine__right__water').mouseleave(function(){
+            clearInterval(WaterIntervall)
+        })
+        $('.coffeMachine__right__cof').mouseleave(function(){
+            clearInterval(CoffeIntervall)
+        })
+        $('.coffeMachine__right__water').mouseup(function(){
+            clearInterval(WaterIntervall)
+        })
+        $('.coffeMachine__right__cof').mouseup(function(){
+            clearInterval(CoffeIntervall)
+        })
+        $('.coffeMachine__right__choose').click(function(){
+            if(onMachine==true && parametru==1 && started==true){
+                coffeMachine.pressChoosed1()
+            }else if(onMachine==true && parametru==2 && started==true){
+                coffeMachine.pressChoosed2()
+            }
+            
+        })
+        $('.coffeMachine__right__plus').click(function(){
+            if(onMachine==true && parametru==1 && started==true){
+                coffeMachine.pressPluss1()
+            }else if(onMachine==true && parametru==2 && started==true){
+                coffeMachine.pressPluss2()
+            }
+       
+        })
+        $('.coffeMachine__right__minus').click(function(){
+            if(onMachine==true && parametru==1 && started==true){
+                coffeMachine.pressMinuss1()
+            }else if(onMachine==true && parametru==2 && started==true){
+                coffeMachine.pressMinuss2()
+            }
+       
+        })
+        $('.coffeMachine__left').click(function(){
+            if(onMachine==false){
+                coffeMachine.onMachine()
+                
+            }
+          
+        })
+        $('.coffeMachine__right__start__pause').click(function(){
+        if(onMachine==true && parametru==1 && started==false || newCoffe==true){
+         
+            newCoffe=false
+
+
+
+      
+        cookingPercantage=0
+         par1SetThis=0;
+        par1SetChoosed=[]
+         par2SetChoosed=[]
+          par2SetThis=0;
+          $('.coffeMachine__right__ekran__main').css('font-size','20px')
+          $('.coffeMachine__right__vudacha1').css('flex-direction','row')
+                    $('.coffeMachine__right__vudacha2').css('flex-direction','row')
+                    coffeMachine__right__img__machine__cup__img.src = par1SetImg[par1SetThis]
+                    $('.coffeMachine__right__ekran__progress__bar').html('')
+
+
+            coffeMachine.btnStart()
+            if(capacityOfWater>350+30 && capacityOfCoffe>100+15){
+                started=true
+                coffeMachine__right__ekran__main.innerText='Виберіть розмір стакана' 
+                    console.log(capacityOfWater,capacityOfCoffe)   
+                }
+        }else if(onMachine==true && parametru==3 && started==true){
+            coffeMachine.pressStarttt3()
+        }
+          
+         
+        })
+        // // let coffeMachine2 = new CoffeMachine(100)
+        // coffeMachine.waterAmout =0
+       
+        // console.log(coffeMachine)
+        // // coffeMachine.run()
+        // // coffeMachine.stop()
+        // // coffeMachine2.waterAmout =500
+        // // console.log(coffeMachine2)
+        // $('#runBtn').click(function(){
+        //     if(coffeMachine.waterAmout>0){
+        //         coffeMachine.run()
+        //     }else{
+        //         console.log('Додайте води')
+        //     }
+         
+        // })
+        // $('#stopBtn').click(function(){
+        //     coffeMachine.stop()
+        // })
+        // $('#addBtn').click(function(){
+        //     if(coffeMachine.waterAmout<1000){
+        //         coffeMachine.waterAmout+=100
+        //         console.log(coffeMachine.waterAmout)
+        //     }
+        // })
+        // $('#removeBtn').click(function(){
+        //     if(coffeMachine.waterAmout>0){
+        //         coffeMachine.waterAmout-=100
+        //         console.log(coffeMachine.waterAmout)
+        //     }
+        // })
+        // function progress(time){
+        //     let progressLevel = 0
+        //  let x=   setInterval(function(){
+        //         progressLevel++
+        //         console.log(progressLevel)
+        //         if(progressLevel==100){
+        //             clearInterval(x)
+        //         }
+        //     },time/100)
+
+        // }
+        // progress(1000)
+    </script>
+</body>
+</html>
